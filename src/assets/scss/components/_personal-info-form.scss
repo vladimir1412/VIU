@@ -1,0 +1,53 @@
+.personal-info-form {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 400px;
+    &__title {
+      font-size: var(--sl-font-size-x-large);
+      color: var(--sl-color-neutral-800);
+      align-self: center;
+    }
+    &__submit-button {
+      align-self: flex-end;
+    }
+    &__group {
+      padding-bottom: var(--sl-spacing-small);
+      sl-input::part(form-control),
+      sl-select::part(form-control) {
+        color: var(--sl-color-neutral-800);
+      }
+
+      &--valid {
+        sl-input::part(form-control),
+        sl-select::part(form-control) {
+          color: var(--sl-color-primary-600);
+        }
+        sl-input::part(base),
+        sl-select::part(combobox) {
+          border-color: var(--sl-color-primary-600);
+        }
+      }
+      &--invalid {
+        sl-input::part(form-control),
+        sl-select::part(form-control) {
+          color: var(--sl-color-danger-600);
+        }
+        sl-input::part(base),
+        sl-select::part(combobox) {
+          border-color: var(--sl-color-danger-600);
+        }
+      }
+
+      .error-message {
+        color: var(--sl-color-danger-600);
+      }
+    }
+  }
+}

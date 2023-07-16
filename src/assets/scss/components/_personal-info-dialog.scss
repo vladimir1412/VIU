@@ -1,0 +1,36 @@
+.personal-info-dialog {
+  &::part(title) {
+    color: var(--sl-color-neutral-800);
+  }
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-spacing-x-small);
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--sl-spacing-x-small) 0;
+    flex-wrap: wrap;
+    &__label {
+      margin: 0;
+      width: 110px;
+      font-size: var(--sl-font-size-small);
+      line-height: var(--sl-line-height-dense);
+      letter-spacing: var(--sl-letter-spacing-dense);
+      color: var(--sl-color-neutral-900);
+    }
+    &__value {
+      font-size: var(--sl-font-size-medium);
+      line-height: var(--sl-line-height-dense);
+      letter-spacing: var(--sl-letter-spacing-dense);
+      margin: 0;
+      word-break: break-all;
+      color: var(--sl-color-neutral-800);
+    }
+  }
+  &__reset-form-button {
+    align-self: flex-end;
+    padding-top: var(--sl-spacing-medium);
+  }
+}

@@ -1,6 +1,6 @@
 /** Components **/
-@import 'base/typography';
+@use 'base/typography';
 
 /** Components **/
-@import 'components/personal-info-dialog';
-@import 'components/personal-info-form';
+@use 'components/personal-info-dialog';
+@use 'components/personal-info-form';

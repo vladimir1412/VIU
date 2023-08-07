@@ -3,12 +3,12 @@ import { mount } from '@vue/test-utils';
 import PersonalInfoForm from '@/components/PersonalInfoForm.vue';
 import { ValidationError } from 'yup';
 import { Gender } from '@/models/gender';
-import { validationSchema } from "@/utils/validation";
+import { validationSchema } from '@/utils/validation';
 
 describe('PersonalInfoForm', () => {
   it('should validate and show errors when form submission fails', async () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     instance.form.name = '';
     instance.form.familyName = '';
@@ -26,8 +26,8 @@ describe('PersonalInfoForm', () => {
   });
 
   it('should validate and show errors when other gender is required but not provided', async () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     instance.form.name = 'John';
     instance.form.familyName = 'Doe';
@@ -41,8 +41,8 @@ describe('PersonalInfoForm', () => {
   });
 
   it('should validate and show no errors when form submission is successful', async () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     instance.form.name = 'John';
     instance.form.familyName = 'Doe';
@@ -59,10 +59,9 @@ describe('PersonalInfoForm', () => {
     expect(instance.errors.birthdate).toBe('');
   });
 
-
   it('should reset form and related properties', () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     instance.form.name = 'Steve';
     instance.form.familyName = 'Jobs';
@@ -102,13 +101,13 @@ describe('PersonalInfoForm', () => {
   });
 
   it('should display input for adding the gender', async () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     instance.form.gender = 'Male';
     instance.showOtherGender = false;
 
-    const event: Event = { target: { value: Gender.Other } };
+    const event = { target: { value: Gender.Other } };
 
     instance.handleGenderChange(event);
 
@@ -120,29 +119,27 @@ describe('PersonalInfoForm', () => {
   });
 
   it('should handle field validation', async () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     const fieldName = 'birthdate';
-    const fieldValue = '';
     const errorMessage = 'Please select your birthdate.';
 
     const validateAtMock = vi.spyOn(validationSchema, 'validateAt');
     validateAtMock.mockRejectedValue(new ValidationError(errorMessage));
 
-    const form = { [fieldName]: fieldValue };
     const errors: Record<string, string> = {};
 
     await it('should set error message when validation fails', async () => {
-      await instance.handleFieldValidation(fieldName, form, errors);
+      await instance.handleFieldValidation(fieldName);
 
       expect(errors[fieldName]).toBe(errorMessage);
     });
   });
 
   it('should handle birthdate change unsuccessfully', async () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     instance.form.birthdate = '2023-07-12';
 
@@ -154,8 +151,8 @@ describe('PersonalInfoForm', () => {
   });
 
   it('should handle birthdate change successfully', async () => {
-    const wrapper = mount(PersonalInfoForm);
-    const instance: PersonalInfoForm = wrapper.vm;
+    const wrapper: any = mount(PersonalInfoForm);
+    const instance = wrapper.vm;
 
     instance.form.birthdate = '2023-07-12';
 

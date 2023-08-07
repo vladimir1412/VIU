@@ -53,7 +53,7 @@ describe('PersonalInfoDialog', () => {
   });
 
   it('should verify profile information is rendered correctly', () => {
-    const wrapper = mount(PersonalInfoDialog, {
+    const wrapper: any = mount(PersonalInfoDialog, {
       props: {
         profileInfo,
         isOpen,
@@ -80,7 +80,7 @@ describe('PersonalInfoDialog', () => {
   });
 
   it('should trigger reset-form event on button click', async () => {
-    const wrapper = mount(PersonalInfoDialog, {
+    const wrapper: any = mount(PersonalInfoDialog, {
       props: {
         profileInfo,
         isOpen,
@@ -109,7 +109,7 @@ describe('PersonalInfoDialog', () => {
       otherGender: 'non-binary',
       birthdate: '2023-07-12',
     };
-    const wrapper = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
+    const wrapper: any = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
 
     expect(wrapper.vm.getGender()).toBe('non-binary');
   });
@@ -122,7 +122,7 @@ describe('PersonalInfoDialog', () => {
       otherGender: '',
       birthdate: '2023-07-12',
     };
-    const wrapper = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
+    const wrapper: any = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
     expect(wrapper.vm.getGender()).toBe(Gender.Male);
   });
 
@@ -134,7 +134,7 @@ describe('PersonalInfoDialog', () => {
       otherGender: '',
       birthdate: '2023-07-12',
     };
-    const wrapper = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
+    const wrapper: any = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
 
     const date = wrapper.vm.getFormattedDate('2023-07-12');
 
@@ -149,7 +149,7 @@ describe('PersonalInfoDialog', () => {
       otherGender: '',
       birthdate: '2023-07-12',
     };
-    const wrapper = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
+    const wrapper: any = mount(PersonalInfoDialog, { props: { profileInfo, isOpen } });
 
     const date = wrapper.vm.getFormattedDate('');
 
